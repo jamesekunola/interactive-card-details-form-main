@@ -294,7 +294,37 @@ input:focus {
   }
 
   form {
-    max-width: 400px;
+    max-width: 25rem;
     width: 100%;
   }
+}
+
+/* completed  */
+
+.completed {
+  text-align: center;
+  max-width: 25rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.completed img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.completed h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 2rem 0 1rem;
+  font-weight: 400;
+}
+
+.completed p {
+  margin-bottom: 3rem;
+  color: var(--Dark-grayish-violet);
+}
+
+.completed button {
+  width: 100%;
 }
