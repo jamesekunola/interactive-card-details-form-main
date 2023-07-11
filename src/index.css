@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* variable */
+:root {
+  /* ### Primary */
+  --Linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+  --input-error: hsl(0, 100%, 66%);
+
+  /* ### Neutral */
+  --White: hsl(0, 0%, 100%);
+  --Light-grayish-violet: hsl(270, 3%, 87%);
+  --Dark-grayish-violet: hsl(279, 6%, 55%);
+  --Very-dark-violet: hsl(278, 68%, 11%);
+}
+
+p,
+input {
+  font-size: 1.125rem;
+  color: var(--Light-grayish-violet);
+}
+
+.hero {
+  max-width: 90rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* card component styles */
+
+.card {
+  background-color: var(--Very-dark-violet);
+  height: 15rem;
+  position: relative;
+  padding: 1rem;
+}
+
+.card__wrapper {
+  width: 80%;
+  height: 10rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  padding: 1rem;
+}
+
+.card__back {
+  background-image: url("./images/bg-card-back.png");
+  right: 1rem;
+}
+
+.card__cvc {
+  position: absolute;
+  top: 4.4rem;
+  right: 2.7rem;
+  color: var(--White);
+  font-size: 1rem;
+}
+
+.card__front {
+  background-image: url("./images/bg-card-front.png");
+  bottom: -3rem;
+}
+
+.logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+}
+
+.card__front__Info {
+  color: var(--White);
+  font-size: 18px;
+  margin-top: 1rem;
+}
+
+.card__front__info_bottom {
+  padding-top: 0.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__front__info_bottom span:first-child {
+  text-transform: uppercase;
+}
+
+/* form component */
+
+.form__wrapper {
+  padding: 6rem 1rem 1rem;
+}
+
+form > div {
+  margin-bottom: 1rem;
+}
+
+form div > label {
+  display: block;
+  margin-bottom: 0.3em;
+  text-transform: uppercase;
+  color: var(--Very-dark-violet);
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid var(--Light-grayish-violet);
+  color: var(--Very-dark-violet);
+}
+
+input:focus {
+  color: var(--Very-dark-violet);
+}
+
+.card__exp__Info,
+.card__exp__period {
+  display: flex;
+  gap: 1rem;
+}
+
+.card__exp__period {
+  gap: 0.5rem;
+}
+
+.card__expDate__details {
+  flex: 0.5;
+}
+
+.card__cvc_input {
+  flex: 0.6;
+}
+
+.error-msg {
+  font-size: 0.8rem;
+  color: var(--input-error);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.error-msg.show {
+  opacity: 1;
+  visibility: visible;
+  animation: shake 1s linear 0.3s;
+}
+
+/* @keyframes shake {
+  25% {
+    transform: translateX(-0.3rem);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(0.3rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+} */
+
+.btn {
+  background-color: var(--Very-dark-violet);
+  width: 100%;
+  padding: 1rem;
+  outline: none;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 0.5rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  filter: opacity(0.3);
+}
