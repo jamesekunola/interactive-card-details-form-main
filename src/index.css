@@ -29,6 +29,13 @@ input {
   margin: 0 auto;
 }
 
+@media screen and (min-width: 48.68rem) {
+  .hero {
+    height: 100vh;
+    display: flex;
+  }
+}
+
 /* card component styles */
 
 .card {
@@ -52,17 +59,17 @@ input {
   right: 1rem;
 }
 
+.card__front {
+  background-image: url("./images/bg-card-front.png");
+  bottom: -3rem;
+}
+
 .card__cvc {
   position: absolute;
   top: 4.4rem;
   right: 2.7rem;
   color: var(--White);
   font-size: 1rem;
-}
-
-.card__front {
-  background-image: url("./images/bg-card-front.png");
-  bottom: -3rem;
 }
 
 .logo {
@@ -88,6 +95,76 @@ input {
 
 .card__front__info_bottom span:first-child {
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 29.25rem) {
+  .card {
+    height: 17rem;
+  }
+
+  .card__wrapper {
+    height: 12rem;
+    width: 25rem;
+  }
+
+  .card__cvc {
+    top: 5.2rem;
+  }
+}
+
+@media screen and (min-width: 39.63rem) {
+  .card__back {
+    right: 3rem;
+  }
+
+  .card__front {
+    left: 3rem;
+  }
+}
+
+@media screen and (min-width: 48.68rem) {
+  .card__back {
+    right: 6rem;
+  }
+
+  .card__front {
+    left: 6rem;
+  }
+}
+
+@media screen and (min-width: 48.68rem) {
+  .card {
+    height: auto;
+    flex: 0.4;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .card__container {
+    display: flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    right: -7rem;
+  }
+
+  .card__wrapper {
+    position: relative;
+    width: 20rem;
+  }
+
+  .card__back {
+    left: 0;
+    margin-top: 1rem;
+  }
+
+  .card__front {
+    left: 0;
+    bottom: auto;
+    margin-left: -4rem;
+  }
 }
 
 /* form component */
@@ -186,4 +263,38 @@ input:focus {
 
 .btn:hover {
   filter: opacity(0.3);
+}
+
+@media screen and (min-width: 39.63rem) {
+  .form__wrapper {
+    padding: 6rem 3rem 1rem;
+  }
+
+  .card__front__Info {
+    position: absolute;
+    bottom: 2rem;
+    width: calc(100% - 2rem);
+  }
+}
+
+@media screen and (min-width: 48.68rem) {
+  .form__wrapper {
+    padding: 6rem 6rem 1rem;
+  }
+}
+
+/* desktop screen style */
+@media screen and (min-width: 48.68rem) {
+  .form__wrapper {
+    flex: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 1rem 0rem 8rem;
+  }
+
+  form {
+    max-width: 400px;
+    width: 100%;
+  }
 }

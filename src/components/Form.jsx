@@ -4,6 +4,9 @@ import { validateFormInputValue } from "./validateFormInput";
 const errStyle = { borderColor: "#ff5252" };
 
 const Form = () => {
+  const yearRef = useRef();
+  const cvcRef = useRef();
+
   const [errorMsg, setErrorMsg] = useState({});
   const [inputValues, setInputValues] = useState({
     name: "",
@@ -20,16 +23,28 @@ const Form = () => {
       value = value.replace(/(\d{4})(?=\d)/g, "$1 "); // Add a space after every 4 digits
       return value;
     }
-
     return value;
+  };
+
+  const autoFocusOnExpiryDateAndCvc = (name, value) => {
+    if (name === "month" && value.length === 2) {
+      console.log("code ran", yearRef.current);
+      yearRef.current.focus();
+    }
+
+    if (name === "year" && value.length === 2) {
+      cvcRef.current.focus();
+    }
   };
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
 
-    setErrorMsg((prevErr) => ({ ...prevErr, [name]: false })); //reset error msg when user start typing
+    setErrorMsg((prevErr) => ({ ...prevErr, [name]: false })); //on keydown: reset error msg of the particular input user focuses on,
 
-    const formattedValues = formatInputValues(name, value);
+    const formattedValues = formatInputValues(name, value); // get formatted values
+
+    autoFocusOnExpiryDateAndCvc(name, value);
 
     setInputValues((prevInfo) => {
       return { ...prevInfo, [name]: formattedValues };
@@ -43,6 +58,12 @@ const Form = () => {
     const validationResult = validateFormInputValue(inputValues);
 
     setErrorMsg(validationResult);
+
+    for (const prop in inputValues) {
+      if (errorMsg.hasOwnProperty.call(errorMsg, prop)) {
+        console.log(prop, errorMsg);
+      }
+    }
   };
 
   return (
@@ -98,7 +119,6 @@ const Form = () => {
                 maxLength={2}
                 value={inputValues.expMonth}
                 onChange={handleInputChange}
-                pattern="/^\d{2}$/"
               />
               <input
                 style={errorMsg.year ? errStyle : null}
@@ -109,7 +129,7 @@ const Form = () => {
                 maxLength={2}
                 value={inputValues.expYear}
                 onChange={handleInputChange}
-                pattern="/^\d{2}$/"
+                ref={yearRef}
               />
             </div>
             <span className={`error-msg ${errorMsg.date && "show"}`}>
@@ -130,7 +150,7 @@ const Form = () => {
               onChange={handleInputChange}
               maxLength={3}
               minLength={3}
-              // pattern="/[0-9]{0,3}/"
+              ref={cvcRef}
             />
             <span className={`error-msg ${errorMsg.cvc && "show"}`}>
               Can't be blank
