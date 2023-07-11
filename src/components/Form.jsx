@@ -79,7 +79,7 @@ const Form = () => {
               onChange={handleInputChange}
             />
             <span className={`error-msg ${errorMsg.name && "show"}`}>
-              enter full name e.g Jane Appleseed
+              {errorMsg.name}
             </span>
           </div>
 
@@ -97,7 +97,7 @@ const Form = () => {
               maxLength={19}
             />
             <span className={`error-msg ${errorMsg.cardNumber && "show"}`}>
-              wrong format, number only
+              {errorMsg.cardNumber}
             </span>
           </div>
 
@@ -130,7 +130,7 @@ const Form = () => {
                 />
               </div>
               <span className={`error-msg ${errorMsg.date && "show"}`}>
-                Can't be blank
+                {errorMsg.date}
               </span>
             </div>
 
@@ -150,7 +150,7 @@ const Form = () => {
                 ref={cvcRef}
               />
               <span className={`error-msg ${errorMsg.cvc && "show"}`}>
-                Can't be blank
+                {errorMsg.cvc}
               </span>
             </div>
           </div>

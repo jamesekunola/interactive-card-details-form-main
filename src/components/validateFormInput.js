@@ -2,29 +2,34 @@ export const validateFormInputValue = (values) => {
   const { name, cardNumber, month, year, cvc } = values;
   const errors = {};
 
-  if (!name) {
-    errors.name = true;
-  }
   if (!/^[A-Za-z]+(?:\s[A-Za-z]+)?\s[A-Za-z]+$/.test(name)) {
-    errors.name = true;
+    errors.name = "invalid format. enter full name e.g jane appleseed";
   }
 
-  if (!cardNumber || cardNumber.length < 19) {
-    errors.cardNumber = true;
+  if (!name) {
+    errors.name = "Can't be blank";
+  }
+
+  if (cardNumber.length < 19) {
+    errors.cardNumber = "invalid card number";
+  }
+
+  if (!cardNumber) {
+    errors.cardNumber = "Can't be blank";
   }
 
   if (!month) {
-    errors.date = true;
+    errors.date = "Can't be blank";
     errors.month = true;
   }
 
   if (!year) {
-    errors.date = true;
+    errors.date = "Can't be blank";
     errors.year = true;
   }
 
   if (!cvc) {
-    errors.cvc = true;
+    errors.cvc = "Can't be blank";
   }
 
   return errors;
