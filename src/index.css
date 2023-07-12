@@ -17,6 +17,10 @@
   --Very-dark-violet: hsl(278, 68%, 11%);
 }
 
+body {
+  font-family: "Space Grotesk", sans-serif;
+}
+
 p,
 input {
   font-size: 1.125rem;
@@ -174,12 +178,12 @@ input {
 }
 
 form > div {
-  margin-bottom: 1rem;
+  margin-bottom: 1.3rem;
 }
 
 form div > label {
   display: block;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
   color: var(--Very-dark-violet);
   font-weight: bold;
@@ -189,7 +193,7 @@ form div > label {
 input {
   display: block;
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   border-radius: 0.5rem;
   outline: none;
   border: 1px solid var(--Light-grayish-violet);
@@ -221,31 +225,73 @@ input:focus {
 .error-msg {
   font-size: 0.8rem;
   color: var(--input-error);
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s;
+  display: block;
 }
 
 .error-msg.show {
   opacity: 1;
   visibility: visible;
-  animation: shake 1s linear 0.3s;
+
+  -webkit-animation: shake 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: shake 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
 
-/* @keyframes shake {
-  25% {
-    transform: translateX(-0.3rem);
-  }
-  50% {
-    transform: translateX(0);
-  }
-  75% {
-    transform: translateX(0.3rem);
-  }
+@-webkit-keyframes shake {
+  0%,
   100% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
-} */
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
 
 .btn {
   background-color: var(--Very-dark-violet);

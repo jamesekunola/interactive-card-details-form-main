@@ -43,7 +43,7 @@ export const validateFormInputValue = (values) => {
     errors.cvc = "Can't be blank";
   }
 
-  if (!/^\d{2}$/.test(cvc)) {
+  if (!/^\d{3}$/.test(cvc)) {
     errors.cvc = "Invalid input";
   }
 

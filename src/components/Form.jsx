@@ -98,7 +98,7 @@ const Form = ({ updateCardInfo }) => {
 
           {/* card number input */}
           <div className="cardNumber__input">
-            <label htmlFor="cardNumber">Cardholder name</label>
+            <label htmlFor="cardNumber">Cardholder number</label>
             <input
               style={errorMsg.cardNumber ? errStyle : null}
               type="text"
