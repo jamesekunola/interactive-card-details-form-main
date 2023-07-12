@@ -1,6 +1,6 @@
 import logo from "../images/card-logo.svg";
 
-const Card = ({ name, cardNumber, expMonth, expYear, cvc }) => {
+const Card = ({ name, cardNumber, month, year, cvc }) => {
   return (
     <article className="card">
       <div className="card__container">
@@ -19,7 +19,7 @@ const Card = ({ name, cardNumber, expMonth, expYear, cvc }) => {
             <div className="card__front__info_bottom">
               <span className="cardName">{name}</span>
               <span className="card__expDate">
-                {expMonth}/{expYear}
+                {month}/{year}
               </span>
             </div>
           </div>

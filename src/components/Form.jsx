@@ -4,7 +4,7 @@ import Complected from "./Completed";
 
 const errStyle = { borderColor: "#ff5252" };
 
-const Form = () => {
+const Form = ({ updateCardInfo }) => {
   const [errorMsg, setErrorMsg] = useState({});
   const [inputValues, setInputValues] = useState({
     name: "",
@@ -23,14 +23,12 @@ const Form = () => {
       value = value.replace(/\D/g, ""); // remove whitespace from value
 
       value = value.replace(/(\d{4})(?=\d)/g, "$1 "); // Add a space after every 4 digits
-      return value;
     }
     return value;
   };
 
   const autoFocusOnExpiryDateAndCvc = (name, value) => {
     if (name === "month" && value.length === 2) {
-      console.log("code ran", yearRef.current);
       yearRef.current.focus();
     }
 
@@ -57,9 +55,24 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const validationResult = validateFormInputValue(inputValues);
+    const validationResults = validateFormInputValue(inputValues);
+    setErrorMsg(validationResults);
+    const finalResult = {};
 
-    setErrorMsg(validationResult);
+    Object.keys(inputValues)
+      .filter((prop) => !Object.keys(validationResults).includes(prop))
+      .forEach((item) => {
+        finalResult[item] = inputValues[item];
+      }); // get the correct input values entered.
+
+    if (Object.keys(finalResult).length > 0) {
+      updateCardInfo(finalResult);
+    } // Update the UI with the user's input when it is correct
+
+    // Show success component when validation is error-free.
+    if (!Object.keys(validationResults).length) {
+      setIsFormSubmittedSuccessfully(true);
+    }
   };
 
   return (
