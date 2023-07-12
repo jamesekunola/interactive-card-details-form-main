@@ -1,5 +1,6 @@
 export const validateFormInputValue = (values) => {
   const { name, cardNumber, month, year, cvc } = values;
+  const currentYear = new Date().getFullYear().toString().substring(2, 4);
   const errors = {};
 
   if (!/^[A-Za-z]+\s[A-Za-z]+$/.test(name)) {
@@ -29,7 +30,7 @@ export const validateFormInputValue = (values) => {
     errors.month = true;
   }
 
-  if (!/^\d{2}$/.test(year)) {
+  if (!/^\d{2}$/.test(year) || year < currentYear) {
     errors.year = true;
     errors.date = "Invalid year";
   }
