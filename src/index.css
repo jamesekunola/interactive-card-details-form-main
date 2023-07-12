@@ -74,6 +74,7 @@ input {
   right: 2.7rem;
   color: var(--White);
   font-size: 1rem;
+  letter-spacing: 0.15rem;
 }
 
 .logo {
@@ -86,19 +87,27 @@ input {
   color: var(--White);
   font-size: 18px;
   margin-top: 1rem;
+  letter-spacing: 0.15rem;
 }
 
 .card__front__info_bottom {
   padding-top: 0.8rem;
   font-size: 0.8rem;
-  letter-spacing: 0.1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.card__expDate {
+  flex: 0.2;
 }
 
 .card__front__info_bottom span:first-child {
   text-transform: uppercase;
+  flex: 0.8;
 }
 
 @media screen and (min-width: 29.25rem) {
@@ -191,6 +200,7 @@ form div > label {
 }
 
 input {
+  position: relative;
   display: block;
   width: 100%;
   padding: 0.7rem 1rem;
@@ -200,8 +210,16 @@ input {
   color: var(--Very-dark-violet);
 }
 
-input:focus {
-  color: var(--Very-dark-violet);
+input:focus::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background-image: linear-gradient(45deg, purple, orange);
 }
 
 .card__exp__Info,

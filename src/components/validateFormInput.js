@@ -19,19 +19,14 @@ export const validateFormInputValue = (values) => {
   }
 
   // validation for date
-  if (!month) {
-    errors.date = "Can't be blank";
-    errors.month = true;
-  }
-
   if (!/^\d{2}$/.test(month) || month <= 0 || month > 12) {
     errors.month = true;
     errors.date = "Invalid month";
   }
 
-  if (!year) {
+  if (!month) {
     errors.date = "Can't be blank";
-    errors.year = true;
+    errors.month = true;
   }
 
   if (!/^\d{2}$/.test(year)) {
@@ -39,12 +34,17 @@ export const validateFormInputValue = (values) => {
     errors.date = "Invalid year";
   }
 
-  if (!cvc) {
-    errors.cvc = "Can't be blank";
+  if (!year) {
+    errors.date = "Can't be blank";
+    errors.year = true;
   }
 
   if (!/^\d{3}$/.test(cvc)) {
     errors.cvc = "Invalid input";
+  }
+
+  if (!cvc) {
+    errors.cvc = "Can't be blank";
   }
 
   return errors;

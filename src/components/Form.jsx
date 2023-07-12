@@ -57,19 +57,20 @@ const Form = ({ updateCardInfo }) => {
 
     const validationResults = validateFormInputValue(inputValues);
     setErrorMsg(validationResults);
-    const finalResult = {};
+
+    const result = {};
 
     Object.keys(inputValues)
       .filter((prop) => !Object.keys(validationResults).includes(prop))
       .forEach((item) => {
-        finalResult[item] = inputValues[item];
+        result[item] = inputValues[item];
       }); // get the correct input values entered.
 
-    if (Object.keys(finalResult).length > 0) {
-      updateCardInfo(finalResult);
+    if (Object.keys(result).length > 0) {
+      updateCardInfo(result);
     } // Update the UI with the user's input when it is correct
 
-    // Show success component when validation is error-free.
+    // Show complected component when validation is error-free.
     if (!Object.keys(validationResults).length) {
       setIsFormSubmittedSuccessfully(true);
     }
